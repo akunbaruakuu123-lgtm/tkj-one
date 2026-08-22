@@ -5,7 +5,7 @@ const pengurus = [
   { nama: "[MOHAMMAD RENGGA AJI SAPUTRA & ARINAYA ARTHALITA PRATAMI]", jabatan: "Sekretaris", tugas: "Administrasi dan dokumentasi kelas", icon: "📋" },
   { nama: "[SELURUH SISWA]", jabatan: "Ketua Keamanan", tugas: "Kebersihan dan ketertiban kelas", icon: "🛡️" },
   { nama: "[SMK PGRI 1 NGANJUK]]", jabatan: "SEKOLAH", tugas: "NAMA SEKOLAHAN", icon: "📚" },
-  { nama: "[PAK YANTO ]", jabatan: "Ketua IT", tugas: "Media, teknologi, dan dokumentasi digital", icon: "💻" },
+  { nama: "[PAK SIDIK ]", jabatan: "Ketua IT", tugas: "Media, teknologi, dan dokumentasi digital", icon: "💻" },
 ];
 
 const siswa = [
