@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 72px;
 }
 
 body {
@@ -31,6 +32,8 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 .container {
@@ -118,7 +121,16 @@ body {
   height: 2px;
   background: var(--text);
   border-radius: 2px;
-  transition: 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-overlay {
+  display: none;
+}
+
+/* Bottom nav - desktop hidden */
+.bottom-nav {
+  display: none;
 }
 
 /* Hero */
@@ -328,6 +340,9 @@ body {
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 8px;
+  word-break: break-word;
+  hyphens: auto;
+  line-height: 1.4;
 }
 
 .org-role {
@@ -376,6 +391,8 @@ body {
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 4px;
+  word-break: break-word;
+  line-height: 1.35;
 }
 
 .pengurus-card .jabatan {
@@ -453,6 +470,8 @@ body {
 .siswa-nama {
   font-weight: 600;
   font-size: 0.9rem;
+  word-break: break-word;
+  line-height: 1.35;
 }
 
 .siswa-card.hidden {
@@ -493,6 +512,97 @@ body {
   font-size: 0.95rem;
 }
 
+/* Social Media */
+.sosmed-section {
+  margin-top: 48px;
+}
+
+.sosmed-header {
+  margin-bottom: 28px;
+}
+
+.sosmed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.sosmed-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.sosmed-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--sosmed-color, var(--primary));
+}
+
+.sosmed-card:hover,
+.sosmed-card:active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--sosmed-color, var(--primary));
+}
+
+.sosmed-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--sosmed-color, var(--primary)) 12%, white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.sosmed-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.sosmed-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.sosmed-body p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.sosmed-arrow {
+  font-size: 1.1rem;
+  color: var(--sosmed-color, var(--primary));
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sosmed-empty {
+  text-align: center;
+  color: var(--text-muted);
+  grid-column: 1 / -1;
+  padding: 24px;
+}
+
 /* Footer */
 .footer {
   background: var(--text);
@@ -507,40 +617,500 @@ body {
   opacity: 0.6;
 }
 
-/* Responsive */
+/* Responsive - Tablet */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    padding: 16px;
-    border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow);
+  html {
+    scroll-padding-top: 64px;
+    scroll-padding-bottom: 80px;
   }
 
-  .nav-links.open {
-    display: flex;
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Navbar mobile drawer */
+  .navbar {
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .nav-inner {
+    height: 56px;
   }
 
   .menu-toggle {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    z-index: 110;
+  }
+
+  .menu-toggle:active {
+    background: var(--primary-light);
+  }
+
+  .nav-links {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(280px, 85vw);
+    flex-direction: column;
+    padding: 72px 20px 24px;
+    background: white;
+    border-left: 1px solid var(--border);
+    box-shadow: -8px 0 32px rgba(15, 23, 42, 0.12);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 105;
+    gap: 4px;
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 16px;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 104;
+  }
+
+  .nav-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Hero mobile */
+  .hero {
+    min-height: auto;
+    padding-top: 56px;
+  }
+
+  .hero-content {
+    padding: 32px 0 40px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    font-size: 0.78rem;
+    padding: 5px 14px;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 14px;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    margin: 0 auto 28px;
+    line-height: 1.55;
   }
 
   .hero-stats {
-    gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 28px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .stat {
+    text-align: center;
+    padding: 4px 0;
+  }
+
+  .stat:not(:last-child) {
+    border-right: 1px solid var(--border);
+  }
+
+  .stat strong {
+    font-size: 1.5rem;
+  }
+
+  .stat span {
+    font-size: 0.72rem;
+  }
+
+  .btn-primary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 16px 24px;
+    font-size: 1rem;
+    border-radius: 14px;
+  }
+
+  /* Sections */
+  .section {
+    padding: 56px 0;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .section-header p {
+    font-size: 0.9rem;
+    padding: 0 8px;
+  }
+
+  /* Org chart - timeline layout on mobile */
+  .org-chart {
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .org-connector {
+    display: none;
+  }
+
+  .org-level,
+  .org-level-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
   }
 
   .org-card {
     width: 100%;
-    max-width: 280px;
+    max-width: none;
+    padding: 18px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    border-radius: 14px;
+    position: relative;
   }
 
-  .org-level-row {
+  .org-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 14px 0 0 14px;
+    background: var(--border);
+  }
+
+  .org-wali::before { background: #fbbf24; }
+  .org-ketua::before { background: var(--primary); }
+
+  .org-ketua {
+    width: 100%;
+  }
+
+  .org-avatar {
+    font-size: 1.75rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border-radius: 12px;
+  }
+
+  .org-card-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .org-card h3 {
+    font-size: 0.72rem;
+    margin-bottom: 4px;
+  }
+
+  .org-name {
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+  }
+
+  .org-role {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+  }
+
+  /* Pengurus - horizontal cards */
+  .pengurus-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pengurus-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .pengurus-card .avatar {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+    margin: 0;
+    flex-shrink: 0;
+    border-radius: 14px;
+  }
+
+  .pengurus-card-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pengurus-card h3 {
+    font-size: 0.88rem;
+  }
+
+  .pengurus-card .jabatan {
+    font-size: 0.78rem;
+    margin-bottom: 4px;
+  }
+
+  .pengurus-card .tugas {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  /* Search sticky on mobile */
+  .search-box {
+    position: sticky;
+    top: 56px;
+    z-index: 50;
+    max-width: none;
+    margin-bottom: 16px;
+    padding: 8px 0;
+    background: linear-gradient(to bottom, var(--bg) 70%, transparent);
+  }
+
+  .search-box input {
+    padding: 14px 16px 14px 44px;
+    font-size: 16px;
+    border-radius: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242 1.056a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 14px center;
+  }
+
+  /* Siswa list */
+  .siswa-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .siswa-card {
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+
+  .siswa-no {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .siswa-nama {
+    font-size: 0.88rem;
+  }
+
+  /* Info cards */
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .info-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+
+  .info-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-light);
+    border-radius: 12px;
+  }
+
+  .info-card-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .info-card h3 {
+    font-size: 0.72rem;
+    margin-bottom: 4px;
+  }
+
+  .info-card p {
+    font-size: 0.88rem;
+    word-break: break-word;
+  }
+
+  .sosmed-section {
+    margin-top: 36px;
+  }
+
+  .sosmed-header {
+    margin-bottom: 20px;
+  }
+
+  .sosmed-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .sosmed-card {
+    padding: 16px;
+    border-radius: 14px;
+    min-height: 72px;
+  }
+
+  .sosmed-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.35rem;
+    border-radius: 12px;
+  }
+
+  .sosmed-body h3 {
+    font-size: 0.92rem;
+  }
+
+  .sosmed-body p {
+    font-size: 0.78rem;
+  }
+
+  /* Footer + bottom nav spacing */
+  .footer {
+    padding: 32px 0 calc(32px + env(safe-area-inset-bottom, 0px));
+    font-size: 0.85rem;
+  }
+
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Bottom navigation bar */
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 -4px 24px rgba(15, 23, 42, 0.08);
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 6px 2px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: color 0.2s, background 0.2s;
+    min-height: 48px;
+  }
+
+  .bottom-nav-item:active {
+    background: var(--primary-light);
+  }
+
+  .bottom-nav-item.active {
+    color: var(--primary);
+  }
+
+  .bottom-nav-icon {
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .stat strong {
+    font-size: 1.3rem;
+  }
+
+  .bottom-nav-item span:last-child {
+    font-size: 0.58rem;
   }
 }
