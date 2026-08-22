@@ -2,7 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#2563eb">
   <title>Struktur Kelas XI TKJ 1</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,12 +24,13 @@
         <li><a href="#anggota">Anggota</a></li>
         <li><a href="#kontak">Kontak</a></li>
       </ul>
-      <button class="menu-toggle" aria-label="Menu">
+      <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
   </nav>
 
   <header id="beranda" class="hero">
@@ -69,9 +71,11 @@
         <div class="org-level">
           <div class="org-card org-wali">
             <div class="org-avatar">👨‍🏫</div>
-            <h3>Wali Kelas</h3>
-            <p class="org-name">Bapak   [FATWA REZA RIZQIKA]</p>
-            <span class="org-role">Pembimbing & Penasehat</span>
+            <div class="org-card-body">
+              <h3>Wali Kelas</h3>
+              <p class="org-name">Bapak [FATWA REZA RIZQIKA]</p>
+              <span class="org-role">Pembimbing & Penasehat</span>
+            </div>
           </div>
         </div>
 
@@ -80,9 +84,11 @@
         <div class="org-level">
           <div class="org-card org-ketua">
             <div class="org-avatar">⭐</div>
-            <h3>Ketua Kelas</h3>
-            <p class="org-name">[ARSHAVIN REKA ALFIANSYAH]</p>
-            <span class="org-role">Koordinasi & Kepemimpinan</span>
+            <div class="org-card-body">
+              <h3>Ketua Kelas</h3>
+              <p class="org-name">[ARSHAVIN REKA ALFIANSYAH]</p>
+              <span class="org-role">Koordinasi & Kepemimpinan</span>
+            </div>
           </div>
         </div>
 
@@ -91,21 +97,27 @@
         <div class="org-level org-level-row">
           <div class="org-card">
             <div class="org-avatar">📝</div>
-            <h3>Wakil Ketua</h3>
-            <p class="org-name">[MOHAMAD ARDIKA FAUZI]</p>
-            <span class="org-role">Menggantikan Ketua</span>
+            <div class="org-card-body">
+              <h3>Wakil Ketua</h3>
+              <p class="org-name">[MOHAMAD ARDIKA FAUZI]</p>
+              <span class="org-role">Menggantikan Ketua</span>
+            </div>
           </div>
           <div class="org-card">
             <div class="org-avatar">💰</div>
-            <h3>Bendahara</h3>
-            <p class="org-name">[ANGGI SHELVIA NINGRUM & GESANG ARUNDAYA]</p>
-            <span class="org-role">Keuangan Kelas</span>
+            <div class="org-card-body">
+              <h3>Bendahara</h3>
+              <p class="org-name">[ANGGI SHELVIA NINGRUM & GESANG ARUNDAYA]</p>
+              <span class="org-role">Keuangan Kelas</span>
+            </div>
           </div>
           <div class="org-card">
             <div class="org-avatar">📋</div>
-            <h3>Sekretaris</h3>
-            <p class="org-name">[MOHAMMAD RENGGA AJI SAPUTRA & ARINAYA ARTHALITA PRATAMI]</p>
-            <span class="org-role">Administrasi & Dokumentasi</span>
+            <div class="org-card-body">
+              <h3>Sekretaris</h3>
+              <p class="org-name">[MOHAMMAD RENGGA AJI SAPUTRA & ARINAYA ARTHALITA PRATAMI]</p>
+              <span class="org-role">Administrasi & Dokumentasi</span>
+            </div>
           </div>
         </div>
 
@@ -114,21 +126,27 @@
         <div class="org-level org-level-row">
           <div class="org-card">
             <div class="org-avatar">🛡️</div>
-            <h3>Ketua Keamanan</h3>
-            <p class="org-name">[SEMUA MURID]</p>
-            <span class="org-role">Kebersihan & Ketertiban</span>
+            <div class="org-card-body">
+              <h3>Ketua Keamanan</h3>
+              <p class="org-name">[SEMUA MURID]</p>
+              <span class="org-role">Kebersihan & Ketertiban</span>
+            </div>
           </div>
           <div class="org-card">
             <div class="org-avatar">📚</div>
-            <h3>WALI KELAS DULU</h3>
-            <p class="org-name">[FATWA REZA RISQIKA]</p>
-            <span class="org-role">WALI KELAS DAHULU</span>
+            <div class="org-card-body">
+              <h3>Wali Kelas Dulu</h3>
+              <p class="org-name">[FATWA REZA RISQIKA]</p>
+              <span class="org-role">Wali Kelas Dahulu</span>
+            </div>
           </div>
           <div class="org-card">
             <div class="org-avatar">💻</div>
-            <h3>Ketua IT</h3>
-            <p class="org-name">[PAK SIDIK ]</p>
-            <span class="org-role">Teknologi & Media Kelas</span>
+            <div class="org-card-body">
+              <h3>Ketua IT</h3>
+              <p class="org-name">[PAK SIDIK]</p>
+              <span class="org-role">Teknologi & Media Kelas</span>
+            </div>
           </div>
         </div>
       </div>
@@ -177,31 +195,64 @@
       <div class="info-grid">
         <div class="info-card">
           <div class="info-icon">🏫</div>
-          <h3>Sekolah</h3>
-          <p>[SMK PGRI 1 NGANJUK]</p>
+          <div class="info-card-body">
+            <h3>Sekolah</h3>
+            <p>SMK PGRI 1 NGANJUK</p>
+          </div>
         </div>
         <div class="info-card">
           <div class="info-icon">📍</div>
-          <h3>Ruangan</h3>
-          <p>[AXIOO]</p>
+          <div class="info-card-body">
+            <h3>Ruangan</h3>
+            <p>AXIOO</p>
+          </div>
         </div>
         <div class="info-card">
           <div class="info-icon">📅</div>
-          <h3>Jadwal Piket</h3>
-          <p>Senin – Jumat, bergiliran per kelompok</p>
+          <div class="info-card-body">
+            <h3>Jadwal Piket</h3>
+            <p>Senin – Jumat, bergiliran per kelompok</p>
+          </div>
         </div>
-        <div class="info-card">
-          <div class="info-icon">💬</div>
-          <h3>SOSIAL MEDIA</h3>
-          <p>WhatsApp / Telegram XI TKJ 1</p>
+      </div>
+
+      <div class="sosmed-section">
+        <div class="section-header sosmed-header">
+          <span class="section-tag">Online</span>
+          <h2>Sosial Media Kelas</h2>
+          <p>Ketuk untuk langsung membuka akun sosial media XI TKJ 1</p>
         </div>
+        <div class="sosmed-grid" id="sosmed-grid"></div>
       </div>
     </div>
   </section>
 
+  <nav class="bottom-nav" aria-label="Navigasi cepat">
+    <a href="#beranda" class="bottom-nav-item" data-section="beranda">
+      <span class="bottom-nav-icon">🏠</span>
+      <span>Beranda</span>
+    </a>
+    <a href="#struktur" class="bottom-nav-item" data-section="struktur">
+      <span class="bottom-nav-icon">📊</span>
+      <span>Struktur</span>
+    </a>
+    <a href="#pengurus" class="bottom-nav-item" data-section="pengurus">
+      <span class="bottom-nav-icon">👥</span>
+      <span>Pengurus</span>
+    </a>
+    <a href="#anggota" class="bottom-nav-item" data-section="anggota">
+      <span class="bottom-nav-icon">📋</span>
+      <span>Anggota</span>
+    </a>
+    <a href="#kontak" class="bottom-nav-item" data-section="kontak">
+      <span class="bottom-nav-icon">ℹ️</span>
+      <span>Info</span>
+    </a>
+  </nav>
+
   <footer class="footer">
     <div class="container footer-inner">
-      <p>&copy; 2026 Kelas XI TKJ 1 — Dibuat dengan ❤️ oleh siswa TKJ</p>
+      <p>&copy; 2026 Kelas XI TKJ 1 — Dibuat dengan oleh siswa TKJ</p>
       <p class="footer-sub">Teknik Komputer dan Jaringan</p>
     </div>
   </footer>
@@ -209,3 +260,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
