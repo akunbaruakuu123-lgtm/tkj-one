@@ -603,6 +603,140 @@ body {
   padding: 24px;
 }
 
+/* Absensi */
+.absensi-panel {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.absensi-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.absensi-link:hover,
+.absensi-link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+  outline: none;
+}
+
+.absensi-open-badge {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+.absensi-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--primary-light), var(--bg-alt));
+}
+
+.absensi-date-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.absensi-date strong {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.absensi-summary {
+  display: flex;
+  gap: 12px;
+}
+
+.absensi-stat {
+  min-width: 72px;
+  text-align: center;
+  padding: 10px 14px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.absensi-stat span {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.absensi-stat strong {
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.absensi-content {
+  min-height: 280px;
+  padding: 24px;
+}
+
+.absensi-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 220px;
+  padding: 32px 20px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+}
+
+.absensi-placeholder-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.absensi-placeholder h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.absensi-placeholder p {
+  max-width: 420px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.absensi-placeholder code {
+  font-size: 0.85em;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
 /* Footer */
 .footer {
   background: var(--text);
@@ -1044,6 +1178,45 @@ body {
     font-size: 0.78rem;
   }
 
+  .absensi-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .absensi-open-badge {
+    justify-content: center;
+    width: 100%;
+    padding: 14px 16px;
+  }
+
+  .absensi-date strong {
+    font-size: 0.92rem;
+  }
+
+  .absensi-summary {
+    width: 100%;
+  }
+
+  .absensi-stat {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .absensi-content {
+    padding: 16px;
+    min-height: 240px;
+  }
+
+  .absensi-placeholder {
+    min-height: 180px;
+    padding: 24px 16px;
+  }
+
+  .absensi-placeholder p {
+    font-size: 0.85rem;
+  }
+
   /* Footer + bottom nav spacing */
   .footer {
     padding: 32px 0 calc(32px + env(safe-area-inset-bottom, 0px));
@@ -1076,10 +1249,10 @@ body {
     align-items: center;
     justify-content: center;
     gap: 2px;
-    padding: 6px 2px;
+    padding: 6px 1px;
     text-decoration: none;
     color: var(--text-muted);
-    font-size: 0.62rem;
+    font-size: 0.58rem;
     font-weight: 600;
     border-radius: 10px;
     transition: color 0.2s, background 0.2s;
