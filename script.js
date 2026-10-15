@@ -143,7 +143,7 @@ function initMenu() {
 }
 
 function initBottomNav() {
-  const sections = ["beranda", "struktur", "pengurus", "anggota", "kontak"];
+  const sections = ["beranda", "struktur", "pengurus", "anggota", "absensi", "kontak"];
   const navItems = document.querySelectorAll(".bottom-nav-item");
 
   function updateActive() {
@@ -172,3 +172,4 @@ renderSiswa(siswa);
 initSearch();
 initMenu();
 initBottomNav();
+
