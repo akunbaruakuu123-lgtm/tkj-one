@@ -22,6 +22,7 @@
         <li><a href="#struktur">Struktur</a></li>
         <li><a href="#pengurus">Pengurus</a></li>
         <li><a href="#anggota">Anggota</a></li>
+        <li><a href="#absensi">Absensi</a></li>
         <li><a href="#kontak">Kontak</a></li>
       </ul>
       <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false">
@@ -185,7 +186,42 @@
     </div>
   </section>
 
-  <section id="kontak" class="section section-alt">
+  <section id="absensi" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Kehadiran</span>
+        <h2>Absensi Kelas</h2>
+        <p>Catat dan pantau kehadiran siswa XI TKJ 1</p>
+      </div>
+
+      <a
+        class="absensi-panel absensi-link"
+        id="absensi-app"
+        href="https://script.google.com/macros/s/AKfycbzvt5ZQw4KPVV61DQJP6J1xpiHSW6pk7WemQzdTKIWC-6AFQvsQMjQm6C61gGwp5qvN/exec"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Buka absensi kelas"
+      >
+        <div class="absensi-toolbar">
+          <div class="absensi-date">
+            <span class="absensi-date-label">Hari ini</span>
+            <strong id="absensi-tanggal">—</strong>
+          </div>
+          <span class="absensi-open-badge">Buka Absensi ↗</span>
+        </div>
+
+        <div class="absensi-content" id="absensi-content">
+          <div class="absensi-placeholder">
+            <div class="absensi-placeholder-icon">✅</div>
+            <h3>Isi Absensi Kelas</h3>
+            <p>Ketuk kartu ini untuk membuka form absensi XI TKJ 1.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="kontak" class="section">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Informasi</span>
@@ -244,6 +280,10 @@
       <span class="bottom-nav-icon">📋</span>
       <span>Anggota</span>
     </a>
+    <a href="#absensi" class="bottom-nav-item" data-section="absensi">
+      <span class="bottom-nav-icon">✅</span>
+      <span>Absensi</span>
+    </a>
     <a href="#kontak" class="bottom-nav-item" data-section="kontak">
       <span class="bottom-nav-icon">ℹ️</span>
       <span>Info</span>
@@ -258,6 +298,8 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="absensi.js"></script>
 </body>
 </html>
+
 
