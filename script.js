@@ -1,11 +1,11 @@
 const pengurus = [
-  { nama: "[ARSHAVIN REKA ALFIANSYAH]", jabatan: "Ketua Kelas", tugas: "Koordinasi seluruh kegiatan kelas", icon: "⭐" },
-  { nama: "[MOHAMAD ARDIKA FAUZI]", jabatan: "Wakil Ketua", tugas: "Menggantikan ketua saat berhalangan", icon: "📝" },
-  { nama: "[ANGGI SHELVIA NINGRUM & GESANG ARUNDAYA]", jabatan: "Bendahara", tugas: "Mengelola keuangan dan kas kelas", icon: "💰" },
-  { nama: "[MOHAMMAD RENGGA AJI SAPUTRA & ARINAYA ARTHALITA PRATAMI]", jabatan: "Sekretaris", tugas: "Administrasi dan dokumentasi kelas", icon: "📋" },
-  { nama: "[SELURUH SISWA]", jabatan: "Ketua Keamanan", tugas: "Kebersihan dan ketertiban kelas", icon: "🛡️" },
-  { nama: "[SMK PGRI 1 NGANJUK]", jabatan: "Sekolah", tugas: "Nama sekolahan", icon: "📚" },
-  { nama: "[PAK YANTO]", jabatan: "Ketua IT", tugas: "Media, teknologi, dan dokumentasi digital", icon: "💻" },
+  { nama: "Arshavin Reka Alfiansyah", jabatan: "Ketua Kelas", tugas: "Koordinasi seluruh kegiatan kelas", icon: "⭐" },
+  { nama: "Mohamad Ardika Fauzi", jabatan: "Wakil Ketua", tugas: "Menggantikan ketua saat berhalangan", icon: "📝" },
+  { nama: "Anggi Shelvia Ningrum & Gesang Arundaya", jabatan: "Bendahara", tugas: "Mengelola keuangan dan kas kelas", icon: "💰" },
+  { nama: "Mohammad Rengga Aji Saputra & Arinaya Arthalita Pratami", jabatan: "Sekretaris", tugas: "Administrasi dan dokumentasi kelas", icon: "📋" },
+  { nama: "Semua Murid", jabatan: "Ketua Keamanan", tugas: "Kebersihan dan ketertiban kelas", icon: "🛡️" },
+  { nama: "Fatwa Reza Rizqika, S.Kom", jabatan: "Wali Kelas Dulu", tugas: "Wali kelas dahulu", icon: "📚" },
+  { nama: "Pak Sidik", jabatan: "Ketua Program Studi TKJ", tugas: "Teknik Komputer Jaringan", icon: "💻" },
 ];
 
 const sosialMedia = [
@@ -172,4 +172,3 @@ renderSiswa(siswa);
 initSearch();
 initMenu();
 initBottomNav();
-
