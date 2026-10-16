@@ -5,7 +5,7 @@ const pengurus = [
   { nama: "Mohammad Rengga Aji Saputra & Arinaya Arthalita Pratami", jabatan: "Sekretaris", tugas: "Administrasi dan dokumentasi kelas", icon: "📋" },
   { nama: "Semua Murid", jabatan: "Ketua Keamanan", tugas: "Kebersihan dan ketertiban kelas", icon: "🛡️" },
   { nama: "Fatwa Reza Rizqika, S.Kom", jabatan: "Wali Kelas Dulu", tugas: "Wali kelas dahulu", icon: "📚" },
-  { nama: "Pak Sidik", jabatan: "Ketua Program Studi TKJ", tugas: "Teknik Komputer Jaringan", icon: "💻" },
+  { nama: "Sidik Efendi,S.Kom", jabatan: "Ketua Program Studi TKJ", tugas: "Teknik Komputer Jaringan", icon: "💻" },
 ];
 
 const sosialMedia = [
